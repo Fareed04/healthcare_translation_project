@@ -1,0 +1,136 @@
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    margin: 20px;
+    background: linear-gradient(to right, #f8f9fa, #e3f2fd);
+    color: #333;
+}
+
+/* Heading */
+h2 {
+    color: #222;
+    font-weight: bold;
+}
+
+/* Buttons */
+button {
+    padding: 12px 18px;
+    margin: 5px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#start-recording {
+    background-color: #28a745;
+    color: white;
+}
+
+#stop-recording {
+    background-color: #dc3545;
+    color: white;
+}
+
+#restart-recording {
+    background-color: #007bff;
+    color: white;
+}
+
+#speak-translation {
+    background-color: #ff9800;
+    color: white;
+}
+
+/* Button Hover Effects */
+button:hover {
+    opacity: 0.85;
+    transform: scale(1.05);
+}
+
+/* Transcription & Translation Display */
+p {
+    font-size: 18px;
+    margin: 10px;
+}
+
+#transcription, #translated-text {
+    display: block;
+    padding: 12px;
+    background: white;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    min-height: 40px;
+    width: 80%;
+    margin: 10px auto;
+    font-weight: bold;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+/* Typing Effect */
+.typing::after {
+    content: '|';
+    display: inline-block;
+    animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* Recording Indicator */
+#recording-indicator {
+    display: none;
+    width: 12px;
+    height: 12px;
+    background-color: red;
+    border-radius: 50%;
+    position: relative;
+    margin: 10px auto;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.5); opacity: 0.5; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* Fade-in Effect for Transcribed & Translated Text */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.transcription-text, .translated-text {
+    display: inline-block;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Language Selection */
+#target-language {
+    font-size: 16px;
+    padding: 8px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    button {
+        width: 80%;
+        font-size: 14px;
+    }
+
+    #transcription, #translated-text {
+        width: 90%;
+    }
+}
