@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-+g5#xr1^#v0g(06akfwsy=h6dhp*mi=p8m5-$mx@)*c=+-h4r(
 DEBUG = DEBUG = os.getenv("DEBUG", "False") == "True"
 
 
-ALLOWED_HOSTS = ["127.0.0.1", "localhost", os.getenv("RAILWAY_URL", "")]
+ALLOWED_HOSTS = ["127.0.0.1", "localhost", os.getenv("RAILWAY_URL", ""), "healthcaretranslation-h0vk05tqi.vercel.app"]
 
 
 INSTALLED_APPS = [
@@ -118,9 +118,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = 'static/'
+# STATIC_URL = 'static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+STATIC_URL = "/static/"
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
