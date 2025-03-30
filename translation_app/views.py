@@ -8,7 +8,7 @@ from django.views.decorators.csrf import csrf_exempt
 
 # Together AI API for LLaMA 2 translation
 TOGETHER_API_URL = "https://api.together.xyz/v1/chat/completions"
-TOGETHER_API_KEY = os.environ.get("TOGETHER_API_KEY")
+TOGETHER_API_KEY = os.getenv("TOGETHER_API_KEY")
 
 if not TOGETHER_API_KEY:
     raise ValueError("API Key is missing! Make sure it's set in the environment.")

@@ -12,9 +12,16 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 import os
-# from dotenv import load_dotenv
+from dotenv import load_dotenv
+import os
 
-# load_dotenv()
+load_dotenv()  # This loads the .env file
+
+API_KEY = os.getenv("TOGETHER_API_KEY")
+
+if not API_KEY:
+    raise ValueError("API Key is missing! Make sure it's set in the environment.")
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -127,3 +134,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 STATIC_URL = "/static/"
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+
+# STATICFILES_DIRS = [os.path.join(BASE_DIR, "translation_app", "static")]
+STATICFILES_DIRS = [BASE_DIR / "translation_app/static"]
