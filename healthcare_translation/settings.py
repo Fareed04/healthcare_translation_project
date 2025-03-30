@@ -36,12 +36,8 @@ SECRET_KEY = 'django-insecure-+g5#xr1^#v0g(06akfwsy=h6dhp*mi=p8m5-$mx@)*c=+-h4r(
 DEBUG = DEBUG = os.getenv("DEBUG", "False") == "True"
 
 
-ALLOWED_HOSTS = [
-    "127.0.0.1",
-    "localhost",
-    os.getenv("RAILWAY_URL", ""),
-    ".vercel.app",  # Allows any Vercel subdomain
-]
+ALLOWED_HOSTS = ["127.0.0.1", "localhost", os.getenv("RAILWAY_URL", ""), "healthcaretranslation-h0vk05tqi.vercel.app"]
+
 
 INSTALLED_APPS = [
     'translation_app',
