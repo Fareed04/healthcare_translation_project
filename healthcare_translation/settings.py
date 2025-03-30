@@ -139,4 +139,6 @@ STATIC_URL = "/static/"
 
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
-STATICFILES_DIRS = [BASE_DIR / "translation_app/static"]
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "translation_app", "static"),
+]
