@@ -33,11 +33,17 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-+g5#xr1^#v0g(06akfwsy=h6dhp*mi=p8m5-$mx@)*c=+-h4r('
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = DEBUG = os.getenv("DEBUG", "False") == "True"
+DEBUG = os.getenv("DEBUG", "False").lower() == "true"
 
 
 # ALLOWED_HOSTS = ["127.0.0.1", "localhost", os.getenv("RAILWAY_URL", ""), "healthcaretranslation-h0vk05tqi.vercel.app"]
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
+
+# Automatically add Vercel-provided URL
+if "VERCEL_URL" in os.environ:
+    ALLOWED_HOSTS.append(os.environ["VERCEL_URL"])
+    ALLOWED_HOSTS.append(f".vercel.app")  # Allow all subdomains
+
 
 
 INSTALLED_APPS = [
@@ -139,4 +145,3 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, "translation_app", "static")]
 # In production, static files will be collected in STATIC_ROOT
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
-
